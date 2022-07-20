@@ -1,3 +1,11 @@
+#criando o app
+docker-compose run api rails new app --api
+docker-compose run api gem install bundler:2.3.13
+docker-compose run api bundle install
+
+#para criar um app em modo API
+docker-compose run api rails new app --api
+
 #iniciando banco de dados
 sudo docker-compose up -d postgres
 
