@@ -1,17 +1,28 @@
-version: "3.9"
+version: "3"
 services:
-  db:
-    image: postgres
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: password
-  web:
+  api:
+    restart: on-failure
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    tty: true
+    stdin_open: true
     volumes:
-      - .:/myapp
+      - .:/app
+      - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://postgres@postgres/api_development
+      TEST_DATABASE_URL: postgresql://postgres@postgres/api_test
+  postgres:
+    image: postgres:13-alpine
+    command: ["postgres", "-c", "fsync=false", "-c", "full_page_writes=off"]
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+volumes:
+  bundle_cache:
