@@ -17,5 +17,9 @@ docker-compose run app rails new ../app
 ```
 #### CRIAR NOVA APLICAÇÃO EM MODO API
 ```
-docker-compose run api rails new ../app --api
+docker-compose run app rails new ../app --api
+```
+#### CRIANDO O BANCO DE DADOS
+```
+docker-compose run app rails db:create
 ```

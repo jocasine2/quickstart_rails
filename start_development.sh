@@ -1,15 +1,11 @@
 #iniciando banco de dados
 sudo docker-compose up -d
 
-#criando o banco de dados
-docker-compose run api rails new ../app
+#corrigindo permissões
 sudo chmod 777 /home/joaquim/Sistemas/desafio_dev_rails_angular/quickstart_rails/config/master.key
 sudo chmod 777 -R /home/joaquim/Sistemas/desafio_dev_rails_angular/quickstart_rails/tmp/db
 
-docker-compose run api sed -i "7c CMD exec docker-compose/start.sh" Dockerfile
-
-#criando o banco de dados
-docker-compose run api rails db:create
+docker-compose run app sed -i "7c CMD exec docker-compose/start.sh" Dockerfile
 
 #reiniciando containers para aplicar as alterações
 sudo chmod 777 -R /home/joaquim/Sistemas/desafio_dev_rails_angular/quickstart_rails/tmp/db
