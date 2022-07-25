@@ -8,6 +8,7 @@ services:
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
+      - ./docker-compose/database.yml:/app/config/database.yml # Here we go!
     ports:
       - "3000:3000"
     depends_on:
