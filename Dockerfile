@@ -4,4 +4,4 @@ WORKDIR /app
 
 RUN gem install bundler
 
-#CMD exec docker-compose/start.sh
+CMD exec docker-compose/start.sh
