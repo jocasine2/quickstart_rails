@@ -10,63 +10,12 @@ sudo ./start_development.sh
 
 [http://localhost:3000/](http://localhost:3000/)
 
-## Front-End
-https://github.com/jocasine2/desafio-dev-front-end
-<br>
-
-# API
-
 ### OPERAÇÃO
-#### CRIAR
+#### CRIAR NOVA APLICAÇÃO
 ```
-[POST] http://localhost:3000/operations
+docker-compose run app rails new ../app
 ```
-#### PARAMETROS
+#### CRIAR NOVA APLICAÇÃO EM MODO API
 ```
-file = CNAB.txt 
-```
-OU
-```
-[POST] http://localhost:3000/operations/:id?options[date]=?options[value]=?options[CPF]=?options[card_number]=?options[hour]=?options[owner]=?options[store_name]=?
-```
-#### EDITAR
-```
-[PUT]	http://localhost:3000/operations/:id?options[date]=?options[value]=?options[CPF]=?options[card_number]=?options[hour]=?options[owner]=?options[store_name]=?
-```	
-
-#### DELETAR
-```
-[DELETE] http://localhost:3000/operations/:id
-```
-
-#### CONSULTAR
-```
-[GET] http://localhost:3000/operations
-```
-OU
-```
-[GET] http://localhost:3000/operations/:id	
-```
-
-
-### TIPO DA TRANSAÇÃO
-#### CRIAR
-```
-[POST] http://localhost:3000/transaction_types?transaction_type[description]=?&transaction_type[nature]=?&transaction_type[signal]=?	
-```	
-#### EDITAR
-```
-[PUT] http://localhost:3000/transaction_types?transaction_type[description]=?&transaction_type[nature]=?&transaction_type[signal]=?	
-```
-#### DELETAR
-```
-[DELETE] http://localhost:3000/transaction_types/:id
-```
-#### CONSULTAR
-```
-[GET] http://localhost:3000/transaction_types
-```
-OU
-```
-[GET] http://localhost:3000/transaction_types/:id	
+docker-compose run api rails new ../app --api
 ```
