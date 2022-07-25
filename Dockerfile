@@ -1,5 +1,5 @@
 FROM ruby:2.7.3
-LABEL Description="Docker Rails API Base"
+LABEL Description="Docker Rails Base"
 WORKDIR /app
 
 RUN gem install bundler
