@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN gem install bundler
 
-#instalando nodejs
+CMD exec docker-compose/start.sh
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - 
 RUN apt-get install -y nodejs
 
