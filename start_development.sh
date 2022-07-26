@@ -2,13 +2,13 @@
 sudo docker-compose up -d
 
 #corrigindo permissões
-sudo chmod 777 /home/joaquim/Sistemas/desafio_dev_rails_angular/quickstart_rails/config/master.key
-sudo chmod 777 -R /home/joaquim/Sistemas/desafio_dev_rails_angular/quickstart_rails/tmp/db
+sudo chmod 777 "$(pwd)/config/master.key"
+sudo chmod 777 -R "$(pwd)/tmp/db"
 
 docker-compose run app sed -i "7c CMD exec docker-compose/start.sh" Dockerfile
 
 #reiniciando containers para aplicar as alterações
-sudo chmod 777 -R /home/joaquim/Sistemas/desafio_dev_rails_angular/quickstart_rails/tmp/db
+sudo chmod 777 -R "$(pwd)/tmp/db"
 
 
 #para remover o app criado
@@ -30,4 +30,3 @@ sudo chmod 777 -R /home/joaquim/Sistemas/desafio_dev_rails_angular/quickstart_ra
 #sudo rm -rf Rakefile
 #sudo rm -rf .ruby-version
 #sudo rm -rf Gemfile
-
