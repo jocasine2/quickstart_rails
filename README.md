@@ -12,7 +12,7 @@ sudo ./start_development.sh
 
 ## logs do container
 ```
-docker logs -f system_name-app
+docker attach system_name-app
 ```
 
 ### OPERAÇÃO
