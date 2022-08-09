@@ -10,6 +10,11 @@ sudo ./start_development.sh
 
 [http://localhost:3000/](http://localhost:3000/)
 
+## logs do container
+```
+docker logs -f vale_gas-app
+```
+
 ### OPERAÇÃO
 #### CRIAR NOVA APLICAÇÃO
 ```
