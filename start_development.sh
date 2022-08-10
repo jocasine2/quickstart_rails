@@ -1,6 +1,6 @@
+#!/bin/bash
 #adicionando funções ao bash
-my_dir="$(pwd)"
-$my_dir/docker-compose/functions.sh
+source docker-compose/functions.sh
 
 #iniciando banco de dados
 sudo docker-compose up -d
