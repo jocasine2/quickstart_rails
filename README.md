@@ -4,7 +4,7 @@
 
 ## Iniciando o docker-compose e atualizando as dependências
 ```
-sudo source start_development.sh
+source start_development.sh
 ```
 ## localhost
 
