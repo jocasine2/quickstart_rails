@@ -92,3 +92,17 @@ function restart(){
     ./start_development.sh
     docker attach vale_gas-app
 }
+
+function se_existe(){
+    file=$1
+    if [ -f "$file" ]
+    then
+        $2
+    fi
+}
+
+function Welcome(){
+    echo funções carregadas!
+}
+
+Welcome
