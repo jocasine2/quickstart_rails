@@ -24,6 +24,10 @@ docker-compose run app rails new ../app
 ```
 docker-compose run app rails new ../app --api
 ```
+#### ADICIONAR API A ROTA EXISTENTE
+```
+
+```
 #### CRIANDO O BANCO DE DADOS
 ```
 docker-compose run app rails db:create
