@@ -1,6 +1,22 @@
 #!/bin/bash
 
 #funções uteis
+function user_docker(){
+    if id -nG "$USER" | grep -qw "docker"; then
+        echo $USER belongs to docker group
+    else
+        sudo usermod -aG docker ${USER}
+        echo $USER has added to the docker group
+    fi
+}
+
+function enter(){
+    docker exec -it $@ bash
+}
+
+function app(){
+    docker-compose run app $@
+}
 
 function app(){
     docker-compose run app $@
@@ -21,7 +37,7 @@ function app_scaffold_api(){
 }
 
 function bd(){
-    docker-compose run bd $@
+    docker-compose run postgres $@
 }
 
 function remove_app(){
@@ -54,6 +70,7 @@ function migrate(){
 
 function permissions_update(){
     sudo chown -R $USER:$USER .
+    echo permissões atualisadas!
 }
 
 function prune(){
@@ -89,8 +106,7 @@ function destroy_project(){
 function restart(){
     docker-compose down
     prune
-    ./start_development.sh
-    docker attach vale_gas-app
+    ./start.sh
 }
 
 function se_existe(){
