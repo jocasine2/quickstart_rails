@@ -36,32 +36,36 @@ function app_scaffold_api(){
     docker-compose run app rails g scaffold $@ --api
 }
 
+function app_scaffold(){
+    docker-compose run app rails g scaffold $@
+}
+
 function bd(){
     docker-compose run postgres $@
 }
 
 function remove_app(){
-    permissions_update
+    #permissions_update
 
     #para remover o app criado 
-    rm -rf bin 
-    rm -rf config 
-    rm -rf db 
-    rm -rf lib 
-    rm -rf log 
-    rm -rf public 
-    rm -rf storage 
-    rm -rf test 
-    rm -rf tmp 
-    rm -rf vendor 
-    rm -rf app 
-    rm -rf .gitattributes 
-    rm -rf config.ru 
-    rm -rf Gemfile.lock  
-    rm -rf package.json 
-    rm -rf Rakefile 
-    rm -rf .ruby-version 
-    rm -rf Gemfile
+    sudo rm -rf bin 
+    sudo rm -rf config 
+    sudo rm -rf db 
+    sudo rm -rf lib 
+    sudo rm -rf log 
+    sudo rm -rf public 
+    sudo rm -rf storage 
+    sudo rm -rf test 
+    sudo rm -rf tmp 
+    sudo rm -rf vendor 
+    sudo rm -rf app 
+    sudo rm -rf .gitattributes 
+    sudo rm -rf config.ru 
+    sudo rm -rf Gemfile.lock  
+    sudo rm -rf package.json 
+    sudo rm -rf Rakefile 
+    sudo rm -rf .ruby-version 
+    sudo rm -rf Gemfile
 }
 
 function migrate(){
@@ -69,7 +73,7 @@ function migrate(){
 }
 
 function permissions_update(){
-    sudo chown -R $USER:$USER .
+    sudo chown -R $USER:$USER app
     echo permissões atualisadas!
 }
 
