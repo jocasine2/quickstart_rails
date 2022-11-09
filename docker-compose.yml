@@ -18,8 +18,8 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgresql://postgres@postgres/api_development
-      TEST_DATABASE_URL: postgresql://postgres@postgres/api_test
+      DATABASE_URL: postgresql://postgres@postgres/${APP_NAME}_development
+      TEST_DATABASE_URL: postgresql://postgres@postgres/${APP_NAME}_test
   postgres:
     container_name: ${APP_NAME}-db
     image: postgres:13-alpine
@@ -27,7 +27,7 @@ services:
     environment:
       POSTGRES_PASSWORD: password
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./docker-compose/postgres:/var/lib/postgresql/data
     ports:
       - "5433:5432"
 volumes:
