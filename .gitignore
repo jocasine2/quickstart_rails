@@ -1,0 +1,6 @@
+/tmp
+.env
+docker/data-volume
+/docker-compose/postgres
+/tmp/letter_opener
+/log
