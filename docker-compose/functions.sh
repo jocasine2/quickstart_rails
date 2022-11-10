@@ -69,8 +69,14 @@ function app_scaffold(){
     docker-compose run app rails g scaffold $@
 }
 
-function bd(){
-    docker-compose run postgres $@
+function db(){
+    if [ $1 == "restore" ]; then
+        echo 'iniciando restauração de '$APP_NAME'_development...'
+        docker container exec $APP_NAME'_db' psql -d $APP_NAME'_development' -f '/home/db_restore/'$2 -U postgres
+        echo $APP_NAME'_development restaurado com sucesso'
+    else
+        docker-compose run postgres $@
+    fi 
 }
 
 function remove_app(){
