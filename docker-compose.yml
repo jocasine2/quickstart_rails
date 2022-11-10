@@ -1,7 +1,7 @@
 version: "3"
 services:
   app:
-    container_name: ${APP_NAME}-app
+    container_name: ${APP_NAME}_app
     restart: on-failure
     build: .
     tty: true
@@ -21,13 +21,14 @@ services:
       DATABASE_URL: postgresql://postgres@postgres/${APP_NAME}_development
       TEST_DATABASE_URL: postgresql://postgres@postgres/${APP_NAME}_test
   postgres:
-    container_name: ${APP_NAME}-db
+    container_name: ${APP_NAME}_db
     image: postgres:13-alpine
     command: ["postgres", "-c", "fsync=false", "-c", "full_page_writes=off"]
     environment:
       POSTGRES_PASSWORD: password
     volumes:
       - ./docker-compose/postgres:/var/lib/postgresql/data
+      - ./docker-compose/db_restore:/home/db_restore
     ports:
       - "5433:5432"
 volumes:
