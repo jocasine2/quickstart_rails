@@ -3,7 +3,7 @@ services:
   app:
     container_name: ${APP_NAME}_app
     restart: on-failure
-    build: .
+    build: ./docker-compose
     tty: true
     stdin_open: true
     volumes:
@@ -25,6 +25,7 @@ services:
     image: postgres:13-alpine
     command: ["postgres", "-c", "fsync=false", "-c", "full_page_writes=off"]
     environment:
+      POSTGRES_DB: ${APP_NAME}_development
       POSTGRES_PASSWORD: password
     volumes:
       - ./docker-compose/postgres:/var/lib/postgresql/data
