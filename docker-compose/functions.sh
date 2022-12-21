@@ -74,6 +74,12 @@ function db(){
         echo 'iniciando restauração de '$APP_NAME'_development...'
         docker container exec $APP_NAME'_db' psql -d $APP_NAME'_development' -f '/home/db_restore/'$2 -U postgres
         echo $APP_NAME'_development restaurado com sucesso'
+    elif [ $1 == "reset" ]; then
+        app rails db:drop
+        app rails db:create
+        app rails db:migrate
+        app rails db:seed
+        sudo rm -rf docker-compose/postgres
     else
         docker-compose run postgres $@
     fi 
