@@ -34,7 +34,7 @@ function app(){
         atualiza_nome_app $2
         docker-compose up -d
     elif [ $1 == "enter" ]; then
-        enter $APP_NAME-app
+        enter $APP_NAME'_app'
     elif [ $1 == "scaffold" ]; then
         app_scaffold ${*:2}
     elif [ $1 == "migrate" ]; then
