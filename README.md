@@ -60,36 +60,36 @@ git diff
 
 | Tipo de confirmação | Emoji | Código |
 |:---------------------------|:----------------------------------------------|:----------------------------------------------|
-| Alteração em andamento | 🚧# |`:construction:`|
-| Correção de erros | 🐛# |`:bug:` |
-| Correção crítica | 🚑# |`:ambulance:` |
-| Novo recurso | ✨# |`:sparkles:` |
-| Arquivos de configuração| 🔧# |`:wrench:` |
-| Adicionando dependencia | ➕# |`:heavy_plus_sign:` |
-| Removendo dependencia | ➖# |`:heavy_minus_sign:` |
-| Documentando o código-fonte | 💡# |`:bulb:` |
-| Cosmético | 💄# |`:lipstick:` |
-| Metadados | 📇# |`:card_index:` |
-| Commit inicial | 🎉# |`:tada:` |
-| Desempenho | 🐎# |`:racehorse:` |
-| Tag de versão | 🔖# |`:bookmark:` |
-| Documentação | 📚# |`:books:` |
-| Testes | 🚨# |`:rotating_light:` |
-| Adicionando um teste | ✅# |`:white_check_mark:` |
-| Faça um teste passar | ✔️# |`:heavy_check_mark:` |
-| Atualização geral | ⚡# |`:zap:` |
-| Melhorar formato/estrutura | 🎨# |`:art:` |
-| Refatorar código | 🔨# |`:hammer:` |
-| Removendo código/arquivos | 🔥# |`:fire:` |
-| Segurança | 🔒# |`:lock:` |
-| Atualizando dependências | ⬆️# |`:arrow_up:` |
-| Fazendo downgrade das dependências | ⬇️# |`:arrow_down:` |
-| Tradução | 👽# |`:alien:` |
-| Texto | ✏️# |`:pencil:` |
-| Deploy | 🚀# |`:rocket:` |
-| Move/rename repository | 🚚# |`:truck:`|
-| Mudança na revisão do codigo | 👌# |`:ok_hand:`|
-| Revertendo mudanças | ⏪# |`:rewind:`|
-| Mudanças rápidas | 💥# |`:boom:`|
-| Merging branches | 🔀# |`:twisted_rightwards_arrows:` |
-| Docker | 🐋# |`:whale:` |
+| Alteração em andamento | git commit -m "🚧# " |`:construction:`|
+| Correção de erros | git commit -m "🐛# " |`:bug:` |
+| Correção crítica | git commit -m "🚑# " |`:ambulance:` |
+| Novo recurso | git commit -m "✨# " |`:sparkles:` |
+| Arquivos de configuração| git commit -m "🔧# " |`:wrench:` |
+| Adicionando dependencia | git commit -m "➕# " |`:heavy_plus_sign:` |
+| Removendo dependencia | git commit -m "➖# " |`:heavy_minus_sign:` |
+| Documentando o código-fonte | git commit -m "💡# " |`:bulb:` |
+| Cosmético | git commit -m "💄# " |`:lipstick:` |
+| Metadados | git commit -m "📇# " |`:card_index:` |
+| Commit inicial | git commit -m "🎉# " |`:tada:` |
+| Desempenho | git commit -m "🐎# " |`:racehorse:` |
+| Tag de versão | git commit -m "🔖# " |`:bookmark:` |
+| Documentação | git commit -m "📚# " |`:books:` |
+| Testes | git commit -m "🚨# " |`:rotating_light:` |
+| Adicionando um teste | git commit -m "✅# " |`:white_check_mark:` |
+| Faça um teste passar | git commit -m "✔️# " |`:heavy_check_mark:` |
+| Atualização geral | git commit -m "⚡# " |`:zap:` |
+| Melhorar formato/estrutura | git commit -m "🎨# " |`:art:` |
+| Refatorar código | git commit -m "🔨# " |`:hammer:` |
+| Removendo código/arquivos | git commit -m "🔥# " |`:fire:` |
+| Segurança | git commit -m "🔒# " |`:lock:` |
+| Atualizando dependências | git commit -m "⬆️# " |`:arrow_up:` |
+| Fazendo downgrade das dependências | git commit -m "⬇️# " |`:arrow_down:` |
+| Tradução | git commit -m "👽# " |`:alien:` |
+| Texto | git commit -m "✏️# " |`:pencil:` |
+| Deploy | git commit -m "🚀# " |`:rocket:` |
+| Move/rename repository | git commit -m "🚚# " |`:truck:`|
+| Mudança na revisão do codigo | git commit -m "👌# " |`:ok_hand:`|
+| Revertendo mudanças | git commit -m "⏪# " |`:rewind:`|
+| Mudanças rápidas | git commit -m "💥# " |`:boom:`|
+| Merging branches | git commit -m "🔀# " |`:twisted_rightwards_arrows:` |
+| Docker | git commit -m "🐋# " |`:whale:` |
