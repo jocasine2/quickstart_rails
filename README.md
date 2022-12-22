@@ -10,21 +10,21 @@ source start_development.sh
 
 [http://localhost:3000/](http://localhost:3000/)
 
-## logs do container
+## logs do container da aplicação
 ```
-docker attach system_name-app
+docker attach system_name_app
 ```
 
 ### OPERAÇÃO
 #### CRIAR NOVA APLICAÇÃO
 ```
-docker-compose run app rails new ../app
+app new <nome_da_aplicação>
 ```
 #### CRIAR NOVA APLICAÇÃO EM MODO API
 ```
-docker-compose run app rails new ../app --api
+app rails new ../app --api
 ```
 #### CRIANDO O BANCO DE DADOS
 ```
-docker-compose run app rails db:create
+app rails db:create
 ```

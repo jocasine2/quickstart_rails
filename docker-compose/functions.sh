@@ -108,6 +108,14 @@ function remove_app(){
     sudo rm -rf .ruby-version 
     sudo rm -rf Gemfile
     sudo rm -rf docker-compose/postgres
+    
+    sudo rm -rf node_modules
+    sudo rm -rf .browserslistrc
+    sudo rm -rf babel.config.js
+    sudo rm -rf postcss.config.js
+    sudo rm -rf yarn.lock
+    sudo rm -rf package-lock.json
+
 }
 
 app_turbolink_remove(){
