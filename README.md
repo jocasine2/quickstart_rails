@@ -2,29 +2,94 @@
 
 <h1 align="center">Yay! You’re on Rails!</h1>
 
-## Iniciando o docker-compose e atualizando as dependências
-```
-source start_development.sh
-```
-## localhost
+# Iniciando ambiente de desenvolvimento
+1 - Instale o [Docker](https://www.docker.com/products/docker-desktop)
 
-[http://localhost:3000/](http://localhost:3000/)
+2 - Carregue algumas funções úteis e inicie os containers
+```
+source start.sh
+```
+3 - Faça o dump do banco de produção e coloque em "docker-compose/db_restore"
 
-## logs do container da aplicação
+4 - Restaure o banco usando o dump de produção
 ```
-docker attach system_name_app
+db restore dump-do-banco.sql
 ```
+5 - Acesse a aplicação em [http://localhost:3000/](http://localhost:3000/)
 
-### OPERAÇÃO
-#### CRIAR NOVA APLICAÇÃO
+<br>
+
+# Boas práticas para o gerenciamento do projeto
+
+## Clone do projeto
+- Faça o clone do projeto e crie uma branch específica para a funcionalidade que está implementando indicando o tipo (feature, bugfix, hotfix) e o nome do usuário 
 ```
-app new <nome_da_aplicação>
+git checkout -b feature/joaquim.neto/listar-produtos-estabelecimento
 ```
-#### CRIAR NOVA APLICAÇÃO EM MODO API
+- Crie [testes unitários](https://pt.wikipedia.org/wiki/Teste_de_unidade)
+
+## Commits
+- faça pequenos commits
+- adicione a referencia do gerenciador de projetos 
 ```
-app rails new ../app --api
+✨#4598 Cria crud de pessoa 
 ```
-#### CRIANDO O BANCO DE DADOS
+- não esqueça de usar o emoji correspondente a alteração
+- revise as alterações que foram feitas antes de fazer o push
 ```
-app rails db:create
+git diff
 ```
+## Pull Request
+- Crie uma PR para a branch develop
+- Escolha adicione o revisor
+  
+## [Daily](https://www.ieepeducacao.com.br/daily-scrum) (pode ser virtual)
+- o que fez ontem?
+- o que ira fazer hoje?
+- quais os impedimentos impedimentos?
+- quais as estratégias?
+
+## Atualize o gerenciador do projeto ([redmine](https://redmine.ati.to.gov.br))
+- Use como base o que voce fez ontem
+
+## Úteis
+ - instale emojisense no vs code
+ - criem seeds para informações estáticas
+
+## Modelos de commits [gitmoji](https://gitmoji.carloscuesta.me/)
+
+| Tipo de confirmação | Emoji | Código |
+|:---------------------------|:----------------------------------------------|:----------------------------------------------|
+| Alteração em andamento | 🚧# |`:construction:`|
+| Correção de erros | 🐛# |`:bug:` |
+| Correção crítica | 🚑# |`:ambulance:` |
+| Novo recurso | ✨# |`:sparkles:` |
+| Arquivos de configuração| 🔧# |`:wrench:` |
+| Adicionando dependencia | ➕# |`:heavy_plus_sign:` |
+| Removendo dependencia | ➖# |`:heavy_minus_sign:` |
+| Documentando o código-fonte | 💡# |`:bulb:` |
+| Cosmético | 💄# |`:lipstick:` |
+| Metadados | 📇# |`:card_index:` |
+| Commit inicial | 🎉# |`:tada:` |
+| Desempenho | 🐎# |`:racehorse:` |
+| Tag de versão | 🔖# |`:bookmark:` |
+| Documentação | 📚# |`:books:` |
+| Testes | 🚨# |`:rotating_light:` |
+| Adicionando um teste | ✅# |`:white_check_mark:` |
+| Faça um teste passar | ✔️# |`:heavy_check_mark:` |
+| Atualização geral | ⚡# |`:zap:` |
+| Melhorar formato/estrutura | 🎨# |`:art:` |
+| Refatorar código | 🔨# |`:hammer:` |
+| Removendo código/arquivos | 🔥# |`:fire:` |
+| Segurança | 🔒# |`:lock:` |
+| Atualizando dependências | ⬆️# |`:arrow_up:` |
+| Fazendo downgrade das dependências | ⬇️# |`:arrow_down:` |
+| Tradução | 👽# |`:alien:` |
+| Texto | ✏️# |`:pencil:` |
+| Deploy | 🚀# |`:rocket:` |
+| Move/rename repository | 🚚# |`:truck:`|
+| Mudança na revisão do codigo | 👌# |`:ok_hand:`|
+| Revertendo mudanças | ⏪# |`:rewind:`|
+| Mudanças rápidas | 💥# |`:boom:`|
+| Merging branches | 🔀# |`:twisted_rightwards_arrows:` |
+| Docker | 🐋# |`:whale:` |
