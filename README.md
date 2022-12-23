@@ -15,11 +15,11 @@ source start.sh
 ```
 db restore dump-do-banco.sql
 ```
-5 - Acesse a aplicação em [http://localhost:3000/](http://localhost:3000/)
+5 - Acesse a aplicação em [http://localhost:3000](http://localhost:3000)
 
 <br>
 
-# Boas práticas para o gerenciamento do projeto
+# Boas práticas para o gerenciamento do repositório
 
 ## Clone do projeto
 - Faça o clone do projeto e crie uma branch específica para a funcionalidade que está implementando indicando o tipo (feature, bugfix, hotfix) e o nome do usuário 
@@ -50,11 +50,25 @@ git diff
 - quais as estratégias?
 
 ## Atualize o gerenciador do projeto ([redmine](https://redmine.ati.to.gov.br))
-- Use como base o que voce fez ontem
+- Use como base o que você fez ontem
 
-## Úteis
+# Úteis
  - instale emojisense no vs code
  - criem seeds para informações estáticas
+ - verifique seus ultimos commits 
+ ```
+ git log --oneline
+ ```
+ - junte commits com históricos irrelevantes
+ ```
+ git rebase -i main~3
+ ```
+squash
+## Ferramentas para geração de diagramas 
+| Ferramenta | Visual Studio Code | NetBeans |
+|:---------------------------|:----------------------------------------------|:----------------------------------------------|
+| Drawio | ✔️ | ? |
+| :emojisense: | ✔️ | ? |
 
 ## Modelos de commits [gitmoji](https://gitmoji.carloscuesta.me/)
 
@@ -76,7 +90,7 @@ git diff
 | Documentação | git commit -m "📚# " |`:books:` |
 | Testes | git commit -m "🚨# " |`:rotating_light:` |
 | Adicionando um teste | git commit -m "✅# " |`:white_check_mark:` |
-| Faça um teste passar | git commit -m "✔️# " |`:heavy_check_mark:` |
+| Passou em um teste | git commit -m "✔️# " |`:heavy_check_mark:` |
 | Atualização geral | git commit -m "⚡# " |`:zap:` |
 | Melhorar formato/estrutura | git commit -m "🎨# " |`:art:` |
 | Refatorar código | git commit -m "🔨# " |`:hammer:` |

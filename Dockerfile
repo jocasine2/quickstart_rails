@@ -1,5 +1,5 @@
 FROM ruby:2.7.3
-LABEL Description="Docker Rails Base"
+
 WORKDIR /app
 
 #instalando bundle
