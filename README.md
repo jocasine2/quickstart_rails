@@ -63,7 +63,7 @@ git diff
  ```
  git rebase -i main~3
  ```
-squash
+
 ## Ferramentas para geração de diagramas 
 | Ferramenta | Visual Studio Code | NetBeans |
 |:---------------------------|:----------------------------------------------|:----------------------------------------------|
