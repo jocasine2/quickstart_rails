@@ -29,6 +29,10 @@ git checkout -b feature/joaquim.neto/listar-produtos-estabelecimento
 - Crie [testes unitários](https://pt.wikipedia.org/wiki/Teste_de_unidade)
 
 ## Commits
+- inicie o expediente atualizando a sua branch com a develop
+```
+git pull origin develop
+```
 - faça pequenos commits
 - adicione a referencia do gerenciador de projetos 
 ```
