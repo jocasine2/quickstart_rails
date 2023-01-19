@@ -45,7 +45,7 @@ git diff
 ```
 ## Pull Request
 - Crie uma PR para a branch develop
-- Escolha adicione o revisor
+- Escolha e adicione o revisor
   
 ## [Daily](https://www.ieepeducacao.com.br/daily-scrum) (pode ser virtual)
 - o que fez ontem?
