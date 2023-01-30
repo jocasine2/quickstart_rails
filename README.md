@@ -3,67 +3,78 @@
 <h1 align="center">Yay! You’re on Rails!</h1>
 
 # Iniciando ambiente de desenvolvimento
-1 - Instale o [Docker](https://www.docker.com/products/docker-desktop)
+1 - Se estiver em ambiente Windows instale o Ubuntu como subsistema através do [WSL2](https://www.youtube.com/watch?v=_Wp2nWtTBBY).
 
-2 - Carregue algumas funções úteis e inicie os containers
+2 - Instale o [Docker Desktop](https://www.docker.com/products/docker-desktop) (Windows) ou [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) (Ubuntu) e o [Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04).
+
+2 - Carregue algumas funções úteis e inicie os containers.
 ```
 source start.sh
 ```
-3 - Faça o dump do banco de produção e coloque em "docker-compose/db_restore"
+## Portando banco de dados produção
+3 - Faça o dump do banco de produção (PostgreSQL) e coloque em "docker-compose/db_restore".
 
-4 - Restaure o banco usando o dump de produção
+4 - Restaure o banco usando o dump de produção.
 ```
 db restore dump-do-banco.sql
 ```
-5 - Acesse a aplicação em [http://localhost:3000](http://localhost:3000)
+5 - Acesse a aplicação em [http://localhost:3000](http://localhost:3000).
 
 <br>
 
-# Boas práticas para o gerenciamento do repositório
+# Parões de projeto - Workflow: [Git Flow](https://youtu.be/oweffeS8TRc)
+![image](https://user-images.githubusercontent.com/38539884/215573408-4d81f256-01c1-47ac-9c16-3400b2112c72.png)
 
 ## Clone do projeto
-- Faça o clone do projeto e crie uma branch específica para a funcionalidade que está implementando indicando o tipo (feature, bugfix, hotfix) e o nome do usuário 
+- Faça o clone do projeto e crie uma branch específica para a alteração que está implementando indicando o nome do usuário e o tipo (feature, bugfix, hotfix). 
 ```
 git checkout -b feature/joaquim.neto/listar-produtos-estabelecimento
 ```
-- Crie [testes unitários](https://pt.wikipedia.org/wiki/Teste_de_unidade)
+- Crie ou alter o [Diagrama de Classes](https://youtu.be/JQSsqMCVi1k) relacionado.
+- Caso a atividade seja especialmente complexa pode-se criar um [Diagrama de Sequencia](https://creately.com/blog/pt/diagrama/tutorial-do-diagrama-de-sequencia/) ou outros.
+- Crie [testes unitários](https://pt.wikipedia.org/wiki/Teste_de_unidade).
 
 ## Commits
-- inicie o expediente atualizando a sua branch com a develop
+- inicie o expediente atualizando a sua branch com a develop.
 ```
 git pull origin develop
 ```
-- faça pequenos commits
-- adicione a referencia do gerenciador de projetos 
+- faça pequenos commits.
+- adicione a referência do gerenciador de projetos. 
 ```
 ✨#4598 Cria crud de pessoa 
 ```
-- não esqueça de usar o emoji correspondente a alteração
-- revise as alterações que foram feitas antes de fazer o push
+- não esqueça de usar o emoji correspondente a alteração.
+- revise as alterações que foram feitas antes de fazer o push.
 ```
 git diff
 ```
+- ao final do dia salve o seu trabalho na sua branch remota.
+```
+git push origin feature/joaquim.neto/listar-produtos-estabelecimento
+```
 ## Pull Request
-- Crie uma PR para a branch develop
-- Escolha e adicione o revisor
+- Crie uma PR para a branch develop após concluir uma tarefa (feature/bugfix/hotfix).
+- Escolha e adicione o revisor.
   
 ## [Daily](https://www.ieepeducacao.com.br/daily-scrum) (pode ser virtual)
+- Se presencial, no máximo 15 minutos de duração, em pé.
 - o que fez ontem?
 - o que ira fazer hoje?
 - quais os impedimentos impedimentos?
 - quais as estratégias?
 
 ## Atualize o gerenciador do projeto ([redmine](https://redmine.ati.to.gov.br))
-- Use como base o que você fez ontem
+- Use como base o que você fez ontem.
 
 # Úteis
- - instale emojisense no vs code
- - criem seeds para informações estáticas
- - verifique seus ultimos commits 
+ - instale emojisense no vs code.
+ - criem seeds para informações estáticas.
+ - verifique seus ultimos commits.
  ```
  git log --oneline
  ```
- - junte commits com históricos irrelevantes
+ - junte commits com históricos irrelevantes.
  ```
  git rebase -i main~3
  ```
