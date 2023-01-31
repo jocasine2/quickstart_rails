@@ -23,8 +23,9 @@ db restore dump-do-banco.sql
 <br>
 
 # Parões de projeto
-## Modelo de gestão de equipe 
-- [SCRUM](https://www.youtube.com/results?search_query=scrum+em+9+minutos)
+## Modelo de gestão de equipe: [SCRUM](https://www.youtube.com/results?search_query=scrum+em+9+minutos)
+![image](https://user-images.githubusercontent.com/38539884/215773070-7706ac3c-a892-41ac-8c42-0c85b8c12b68.png)
+
 
 ## Workflow: [Git Flow](https://youtu.be/oweffeS8TRc)
 
@@ -72,6 +73,9 @@ git push origin feature/joaquim.neto/listar-produtos-estabelecimento
 
 ## Atualize o gerenciador do projeto ([redmine](https://redmine.ati.to.gov.br))
 - Use como base o que você fez ontem.
+## Modelo de Versionamento: [Versionamento Semantico](https://www.youtube.com/watch?v=K9sSyVsRC7k)
+
+[semver.org](https://semver.org/lang/pt-BR/)
 
 # Úteis
  - instale emojisense no vs code.
