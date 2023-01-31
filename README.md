@@ -22,7 +22,13 @@ db restore dump-do-banco.sql
 
 <br>
 
-# Parões de projeto - Workflow: [Git Flow](https://youtu.be/oweffeS8TRc)
+# Parões de projeto
+## Modelo de gestão de equipe 
+- [SCRUM](https://www.youtube.com/results?search_query=scrum+em+9+minutos)
+
+## Workflow: [Git Flow](https://youtu.be/oweffeS8TRc)
+
+
 ![image](https://user-images.githubusercontent.com/38539884/215573408-4d81f256-01c1-47ac-9c16-3400b2112c72.png)
 
 ## Clone do projeto
