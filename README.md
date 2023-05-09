@@ -22,7 +22,7 @@ db restore dump-do-banco.sql
 
 <br>
 
-# Parões de projeto
+# Padrões de projeto
 ## Modelo de gestão de equipe: [SCRUM](https://www.youtube.com/results?search_query=scrum+em+9+minutos)
 ![image](https://user-images.githubusercontent.com/38539884/215773070-7706ac3c-a892-41ac-8c42-0c85b8c12b68.png)
 
