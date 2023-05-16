@@ -1,6 +1,9 @@
 #!/bin/bash
-
-#!/bin/bash
+#reinicia a aplicação e mostra os logs do app
+function dua(){
+    docker-compose down && docker-compose up -d
+    docker attach $APP_NAME'_app'
+}
 
 # Função para instalar Docker e Docker Compose
 install_docker_compose() {
