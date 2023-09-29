@@ -1,4 +1,4 @@
-FROM ruby:2.7.3
+FROM ruby:3.2.1
 
 WORKDIR /app
 
@@ -6,8 +6,8 @@ WORKDIR /app
 RUN gem install bundler
 
 #instalando node
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - 
-RUN apt-get update && apt-get install -y nodejs apt-utils
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - 
+RUN apt update && apt install -y nodejs apt-utils
 
 #atualizando node
 RUN npm update -g

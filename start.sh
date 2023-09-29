@@ -1,6 +1,6 @@
 #!/bin/bash
 #adicionando funções ao bash
-source docker-compose/functions.sh
+source submodules/ruby-on-rails/functions.sh
 
 #adicionando usuário ao grupo docker
 user_docker
