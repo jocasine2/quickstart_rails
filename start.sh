@@ -1,6 +1,7 @@
 #!/bin/bash
 #adicionando funções ao bash
 source submodules/ruby-on-rails/functions.sh
+git submodule update --init --recursive
 
 #adicionando usuário ao grupo docker
 user_docker
