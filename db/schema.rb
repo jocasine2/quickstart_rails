@@ -10,14 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_14_050439) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_133203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "diagrams", force: :cascade do |t|
-    t.json "entities"
+  create_table "dattributes", force: :cascade do |t|
+    t.string "name"
+    t.bigint "dclass_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dclass_id"], name: "index_dattributes_on_dclass_id"
+  end
+
+  create_table "dclasses", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "diagrams", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dmethods", force: :cascade do |t|
+    t.string "signature"
+    t.bigint "dclass_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dclass_id"], name: "index_dmethods_on_dclass_id"
+  end
+
+  add_foreign_key "dattributes", "dclasses"
+  add_foreign_key "dmethods", "dclasses"
 end

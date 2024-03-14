@@ -1,0 +1,7 @@
+
+app rails g model Diagram
+app rails g model dclass name:string
+app rails g model dattribute name:string dclass:references
+app rails g model dmethod signature:string dclass:references
+
+app rails db:drop && app rails db:create && app rails db:migrate

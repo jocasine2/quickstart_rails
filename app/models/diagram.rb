@@ -2,48 +2,42 @@ class Diagram < ApplicationRecord
 
     require 'rexml/document'
 
-def self.ler_arquivo_drawio(nome_arquivo)
-  # Abrir e ler o arquivo .drawio
-  file = File.open(nome_arquivo)
-  xml_content = file.read
-  file.close
+    include ActiveModel::Model
 
-  # Usar REXML para analisar o conteúdo XML
-  doc = REXML::Document.new(xml_content)
+    attr_accessor :dclasses
+  
+    validates :dclasses, presence: true
 
-  # Estrutura para armazenar informações coletadas
-  informações = {
-    entidades: [],
-    relacionamentos: []
-  }
-
-  # Percorrer os elementos mxCell no XML
-  doc.elements.each('//mxCell') do |elemento|
-    # Verificar se o elemento representa uma entidade
-    if elemento.attributes['vertex'] == '1'
-      nome_entidade = elemento.attributes['value']
-      atributos = []
-
-      # Percorrer os filhos do elemento para coletar atributos
-      elemento.elements.each('mxCell') do |atributo|
-        if atributo.attributes['vertex'] == '1'
-          atributo_nome = atributo.attributes['value']
-          atributos << atributo_nome
+    def self.classes(nome_arquivo = "docs/diagramas/exemplo.diagrama.drawio")
+        # Abrir e ler o arquivo .drawio
+        file = File.open(nome_arquivo)
+        xml_content = file.read
+        file.close
+    
+        # Usar REXML para analisar o conteúdo XML
+        doc = REXML::Document.new(xml_content)
+    
+        # Estrutura para armazenar informações das classes
+        classes_info = Hash.new { |h, k| h[k] = [] }
+    
+        classe_atual = nil
+    
+        # Percorrer os elementos mxCell no XML
+        doc.elements.each('//mxCell') do |elemento|
+            value = elemento.attributes['value']
+            next if value.nil? || value.empty?
+    
+            if value =~ /^[A-Z]/
+                # Elemento é o nome de uma classe
+                classe_atual = value
+            else
+                # Elemento é um atributo
+                atributo = value.split(':').first.strip.gsub(/^[^a-zA-Z]*/, '') # Remover caracteres especiais do início
+                classes_info[classe_atual] << atributo if classe_atual
+            end
         end
-      end
-
-      informações[:entidades] << { nome: nome_entidade, atributos: atributos }
+    
+        return classes_info
     end
-
-    # Verificar se o elemento representa um relacionamento
-    if elemento.attributes['edge'] == '1'
-      fonte_id = elemento.attributes['source']
-      destino_id = elemento.attributes['target']
-      informações[:relacionamentos] << { fonte_id: fonte_id, destino_id: destino_id }
-    end
-  end
-
-  return informações
-end
-
+    
 end

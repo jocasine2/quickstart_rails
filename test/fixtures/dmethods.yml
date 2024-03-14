@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  signature: MyString
+  dclass: one
+
+two:
+  signature: MyString
+  dclass: two
