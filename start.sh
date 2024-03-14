@@ -1,5 +1,6 @@
 #!/bin/bash
 #adicionando funções ao bash
+git submodule update --init --recursive
 source submodules/ruby-on-rails/functions.sh
 
 #adicionando usuário ao grupo docker
@@ -13,6 +14,7 @@ permissions_update
 
 #sudo docker-compose up -d postgres
 
+app rails webpacker:install
 app bundle
 app rails db:drop
 app rails db:create
