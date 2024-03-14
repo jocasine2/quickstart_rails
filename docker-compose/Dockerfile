@@ -5,7 +5,7 @@ COPY . /app
 
 RUN apt-get update
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install -y nodejs
 RUN npm cache verify
 RUN npm install webpack -g

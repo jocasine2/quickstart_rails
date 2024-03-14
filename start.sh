@@ -13,6 +13,7 @@ permissions_update
 
 #sudo docker-compose up -d postgres
 
+app rails webpacker:install
 app bundle
 app rails db:drop
 app rails db:create
