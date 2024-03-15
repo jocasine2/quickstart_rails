@@ -71,3 +71,4 @@ group :test do
 end
 
 gem 'rexml'
+gem 'tailwindcss-rails', '~> 2.3'
