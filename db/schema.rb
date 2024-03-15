@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_14_133203) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_15_012452) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,34 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_133203) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dclass_id"], name: "index_dmethods_on_dclass_id"
+  end
+
+  create_table "filhos", force: :cascade do |t|
+    t.bigint "pessoa_id"
+    t.text "cpf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fisicas", force: :cascade do |t|
+    t.bigint "pessoa_id"
+    t.text "cpf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pessoafilhos", force: :cascade do |t|
+    t.bigint "pessoa_id"
+    t.bigint "filho_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pessoas", force: :cascade do |t|
+    t.string "nome"
+    t.date "nascimento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "dattributes", "dclasses"

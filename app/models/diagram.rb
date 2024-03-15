@@ -42,8 +42,13 @@ class Diagram < ApplicationRecord
         Diagram.classes.keys
     end
 
-    def self.scaffold_generator
+    def self.scaffold_generator(migrate = true)
         classes_info = Diagram.classes
+
+        if migrate
+            system("rails db:drop")
+            system("rails db:create")
+        end
 
         classes_info.each do |class_name, attributes|
             scaffold_attributes = attributes.reject { |attr| attr =~ /\(.*\)/ } # Remover métodos
@@ -55,6 +60,10 @@ class Diagram < ApplicationRecord
             end
 
             system(scaffold_command)
+        end
+
+        if migrate
+            system("rails db:migrate")
         end
     end
 
