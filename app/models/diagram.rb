@@ -16,10 +16,10 @@ class Diagram < ApplicationRecord
         doc = REXML::Document.new(xml_content)
     
         # Estrutura para armazenar informações das classes
-        classes_info = Hash.new { |h, k| h[k] = [] }
-    
+        classes_info = []
         classe_atual = nil
-    
+        classes = []
+
         # Percorrer os elementos mxCell no XML
         doc.elements.each('//mxCell') do |elemento|
             value = elemento.attributes['value']
@@ -27,36 +27,40 @@ class Diagram < ApplicationRecord
     
             if value =~ /^[A-Z]/
                 # Elemento é o nome de uma classe
-                classe_atual = value
+                classe_atual = Dclass.new(value)
+                classes << classe_atual
+            elsif value =~ /\(.*\)/
+                # Elemento é um método
+                classe_atual.methods << value.gsub(/^[^a-zA-Z]*/, '').delete(' ') # Remover caracteres especiais do início
             else
                 # Elemento é um atributo
                 atributo = value.strip.gsub(/^[^a-zA-Z]*/, '').delete(' ') # Remover caracteres especiais do início
-                classes_info[classe_atual] << atributo if classe_atual
+                classe_atual.attributes << atributo if classe_atual
             end
         end
     
-        return classes_info
+        return classes
     end
     
     def self.classes_names
-        Diagram.classes.keys
+        Diagram.classes.map(&:name)
     end
 
     def self.scaffold_generator(migrate = true)
-        classes_info = Diagram.classes
+        classes = Diagram.classes
 
         if migrate
             system("rails db:drop")
             system("rails db:create")
         end
 
-        classes_info.each do |class_name, attributes|
-            scaffold_attributes = attributes.reject { |attr| attr =~ /\(.*\)/ } # Remover métodos
+        classes.each do |dclass|
+            scaffold_attributes = dclass.attributes.reject { |attr| dclass.methods.include?(attr) }
 
-            scaffold_command = "rails g scaffold #{class_name.downcase}"
+            scaffold_command = "rails g scaffold #{dclass.name.downcase}"
 
             scaffold_attributes.each do |attribute|
-                scaffold_command << " #{attribute.downcase}"
+            scaffold_command << " #{attribute.downcase}"
             end
 
             system(scaffold_command)
@@ -68,10 +72,10 @@ class Diagram < ApplicationRecord
     end
 
     def self.scaffold_destroyer
-        classes_info = Diagram.classes
-        
-        classes_info.each do |class_name, _attributes|
-            scaffold_command = "rails d scaffold #{class_name.downcase}"
+        classes = Diagram.classes
+
+        classes.each do |dclass|
+            scaffold_command = "rails d scaffold #{dclass.name.downcase}"
             system(scaffold_command)
         end
     end
