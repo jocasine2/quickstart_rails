@@ -14,11 +14,12 @@ permissions_update
 #sudo docker-compose up -d postgres
 
 app rails webpacker:install
-app rails tailwindcss:build
 app rails tailwindcss:install
+app rails tailwindcss:build
 
 app bundle
 app rails db:drop
 app rails db:create
 app rails db:migrate
 app rails db:seed
+

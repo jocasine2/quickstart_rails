@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_15_195603) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_16_021619) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,13 +41,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_15_195603) do
     t.index ["dclass_id"], name: "index_dmethods_on_dclass_id"
   end
 
-  create_table "filhos", force: :cascade do |t|
-    t.bigint "pessoa_id"
-    t.text "cpf"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "fisicas", force: :cascade do |t|
     t.bigint "pessoa_id"
     t.text "cpf"
@@ -55,9 +48,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_15_195603) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pessoafilhos", force: :cascade do |t|
-    t.bigint "pessoa_id"
-    t.bigint "filho_id"
+  create_table "patients", force: :cascade do |t|
+    t.bigint "fisica_id"
+    t.text "sus_card"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
