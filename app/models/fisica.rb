@@ -1,0 +1,2 @@
+class Fisica < ApplicationRecord
+end

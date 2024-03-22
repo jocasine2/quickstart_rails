@@ -3,6 +3,7 @@
 <h1 align="center">Yay! You’re on Rails!</h1>
 
 # Iniciando ambiente de desenvolvimento
+0 - https://github.com/startbootstrap/startbootstrap-sb-admin-2
 1 - Se estiver em ambiente Windows instale o Ubuntu como subsistema através do [WSL2](https://www.youtube.com/watch?v=_Wp2nWtTBBY).
 
 2 - Instale o [Docker Desktop](https://www.docker.com/products/docker-desktop) (Windows) ou [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) (Ubuntu) e o [Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04).
