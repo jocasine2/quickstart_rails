@@ -1,2 +1,0 @@
-class Pessoa < ApplicationRecord
-end
