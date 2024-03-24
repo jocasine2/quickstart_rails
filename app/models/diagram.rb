@@ -81,7 +81,7 @@ class Diagram < ApplicationRecord
         classes.each do |dclass|
             scaffold_attributes = dclass.attributes.reject { |attr| dclass.methods.include?(attr) }
 
-            scaffold_command = "rails g scaffold #{dclass.name.downcase}"
+            scaffold_command = "rails g scaffold #{dclass.name}"
 
             scaffold_attributes.each do |attribute|
                 scaffold_command << " #{attribute.downcase}"

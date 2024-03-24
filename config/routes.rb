@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_profiles
+  resources :natural_people
   resources :patients
   resources :pessoas
   resources :fisicas
