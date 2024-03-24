@@ -1,0 +1,17 @@
+<div id="<%= dom_id user_profile %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= user_profile.user_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Profile:</strong>
+    <%= user_profile.profile_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this user profile", user_profile, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this user profile", edit_user_profile_path(user_profile), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

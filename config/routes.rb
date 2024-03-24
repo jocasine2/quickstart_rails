@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :logs
+  resources :profiles
   resources :user_profiles
   resources :natural_people
   resources :patients
   resources :pessoas
   resources :fisicas
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

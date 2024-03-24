@@ -1,0 +1,37 @@
+<div id="<%= dom_id log %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= log.user_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Activity:</strong>
+    <%= log.activity %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ip address:</strong>
+    <%= log.ip_address %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Device info:</strong>
+    <%= log.device_info %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Browser:</strong>
+    <%= log.browser %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Location:</strong>
+    <%= log.location %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this log", log, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this log", edit_log_path(log), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

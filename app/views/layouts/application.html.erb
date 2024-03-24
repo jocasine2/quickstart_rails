@@ -26,11 +26,11 @@
   </head>
   <body id="page-top">
       <div id="wrapper">
-        <% if request.path != "/users/sign_in" && request.path != "/users/sign_up" %>
+        <% if request.path != "/users/sign_in" && request.path != "/users/sign_up" && request.path != "/users/password/new" %>
           <%= render 'layouts/shared/sidebar' %>
         <% end %>
         <div id="content-wrapper" class="d-flex flex-column">
-          <% if request.path != "/users/sign_in" && request.path != "/users/sign_up"%>
+          <% if request.path != "/users/sign_in" && request.path != "/users/sign_up" && request.path != "/users/password/new"%>
             <%= render 'layouts/shared/topbar' %>
           <% end %>
           <!-- Main Content -->
