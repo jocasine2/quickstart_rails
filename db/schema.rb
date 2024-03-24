@@ -14,20 +14,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_23_003809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "animals", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dattributes", force: :cascade do |t|
-    t.string "name"
-    t.bigint "dclass_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dclass_id"], name: "index_dattributes_on_dclass_id"
-  end
-
   create_table "dclasses", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -35,35 +21,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_23_003809) do
   end
 
   create_table "diagrams", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dmethods", force: :cascade do |t|
-    t.string "signature"
-    t.bigint "dclass_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dclass_id"], name: "index_dmethods_on_dclass_id"
-  end
-
-  create_table "fisicas", force: :cascade do |t|
-    t.bigint "pessoa_id"
-    t.text "cpf"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "patients", force: :cascade do |t|
-    t.bigint "fisica_id"
-    t.text "sus_card"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pessoas", force: :cascade do |t|
-    t.string "nome"
-    t.date "nascimento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,6 +37,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_23_003809) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "dattributes", "dclasses"
-  add_foreign_key "dmethods", "dclasses"
 end

@@ -6,7 +6,7 @@ class Diagram < ApplicationRecord
     attr_accessor :dclasses
     validates :dclasses, presence: true
 
-    def self.classes(nome_arquivo = "docs/diagramas/exemplo.diagrama.drawio")
+    def self.classes(nome_arquivo = "docs/diagramas/class_diagram.drawio")
         # Abrir e ler o arquivo .drawio
         file = File.open(nome_arquivo)
         xml_content = file.read
@@ -39,9 +39,33 @@ class Diagram < ApplicationRecord
             end
         end
     
-        return classes
+        return sort_classes(classes)
     end
     
+    def self.sort_classes(classes)
+        result = []
+        
+        # captura as referencias primeiro
+        classes.each do |dclass|
+            if !has_references(dclass)
+                result << dclass
+            end
+        end
+
+        # captura os que referenciam
+        classes.each do |dclass|
+            if has_references(dclass)
+                result << dclass
+            end
+        end
+
+        result
+    end
+
+    def self.has_references(dclass)
+        dclass.attributes.any? { |attr| attr.end_with?("References") }
+    end
+
     def self.classes_names
         Diagram.classes.map(&:name)
     end
@@ -60,7 +84,7 @@ class Diagram < ApplicationRecord
             scaffold_command = "rails g scaffold #{dclass.name.downcase}"
 
             scaffold_attributes.each do |attribute|
-            scaffold_command << " #{attribute.downcase}"
+                scaffold_command << " #{attribute.downcase}"
             end
 
             system(scaffold_command)
